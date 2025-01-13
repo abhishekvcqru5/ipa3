@@ -14,8 +14,8 @@ jobs:
         with:
           channel: 'stable'
           architecture: x64
+
       - run: flutter pub get
-      
 
       - run: pod repo update
         working-directory: ios
@@ -33,9 +33,9 @@ jobs:
         working-directory: build/ios/iphoneos
 
       - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@v2  # Ensure you have the latest version
         with:
-          repo_token: ${{ secrets.YOUR_SECRET_NAME1 }}
+          repo_token: ${{ secrets.YOUR_SECRET_NAME1 }}  # Double-check the secret name
           file: build/ios/iphoneos/FlutterIpaExport.ipa
           tag: v1.0
           overwrite: true
