@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-ios:
-    name: 🎉 iOS7 Build
+    name: 🎉 iOS9 Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
