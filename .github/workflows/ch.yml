@@ -16,16 +16,13 @@ jobs:
           architecture: x64
       
       - run: flutter pub get
-      
+
       - run: flutter doctor -v
 
       - run: pod repo update
         working-directory: ios
 
       - run: flutter build ios --release --no-codesign
-
-      - run: ls -la
-        working-directory: build/ios/iphoneos
 
       - run: mkdir Payload
         working-directory: build/ios/iphoneos
@@ -40,7 +37,7 @@ jobs:
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: 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
+          repo_token: ${{ secrets.MY_PAT_TOKEN }}
           file: build/ios/iphoneos/FlutterIpaExport.ipa
           tag: build-${{ github.run_number }}
           overwrite: true
