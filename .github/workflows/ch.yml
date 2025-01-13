@@ -40,7 +40,7 @@ jobs:
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.YOUR_SECRET_NAME1 }}
+          repo_token: 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
           file: build/ios/iphoneos/FlutterIpaExport.ipa
           tag: build-${{ github.run_number }}
           overwrite: true
